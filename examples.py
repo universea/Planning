@@ -14,6 +14,7 @@ from planning.pp2d.env import Environments
 
 from planning.pp2d.rrt import RRT
 from planning.pp2d.rrt_connect import RRTConnect
+from planning.pp2d.rrt_star import RRTStar
 
 if __name__ == '__main__':
 
@@ -28,7 +29,8 @@ if __name__ == '__main__':
                                            min_side_length=20, max_side_length=50)
 
     #planner = RRT(env, x_start, x_goal, 0.5, 0.05, 10000)
-    planner = RRTConnect(env, x_start, x_goal, 0.8, 0.05, 5000)
+    #planner = RRTConnect(env, x_start, x_goal, 0.8, 0.05, 5000)
+    planner = RRTStar(env, x_start, x_goal, 10, 0.10, 20, 10000)
 
     path = planner.planning()
 
